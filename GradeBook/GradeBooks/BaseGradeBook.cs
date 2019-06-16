@@ -13,6 +13,7 @@ namespace GradeBook.GradeBooks
     {
         public string Name { get; set; }
         public List<Student> Students { get; set; }
+        public GradeBookType Type { get; set; }
 
         public BaseGradeBook(string name)
         {
@@ -44,6 +45,7 @@ namespace GradeBook.GradeBooks
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("A Name is required to add a grade to a student.");
+            //TODO refactor
             var student = Students.FirstOrDefault(e => e.Name == name);
             if (student == null)
             {
