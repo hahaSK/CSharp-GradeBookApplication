@@ -47,7 +47,7 @@ namespace GradeBook.GradeBooks
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("A Name is required to add a grade to a student.");
-            //TODO refactor
+            
             var student = Students.FirstOrDefault(e => e.Name == name);
             if (student == null)
             {
@@ -185,7 +185,6 @@ namespace GradeBook.GradeBooks
                 }
             }
 
-            //#todo refactor into it's own method with calculations performed here
             Console.WriteLine("Average Grade of all students is " + (allStudentsPoints / Students.Count));
             if (campusPoints != 0)
                 Console.WriteLine("Average for only local students is " + (campusPoints / Students.Where(e => e.Enrollment == EnrollmentType.Campus).Count()));
